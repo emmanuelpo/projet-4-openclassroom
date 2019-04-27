@@ -1,0 +1,4 @@
+AuthName "Veuillez rentrer votre login et mot de passe"
+AuthType Basic
+AuthUserFile "/home/site/www/admin/.htpasswd"
+Require valid-user
