@@ -1,5 +1,7 @@
 <?php
 
+namespace OpenClassrooms\projetopenclassroom\model;
+
 require_once("model/Connexion.php");
 
 class CommentConnexion extends Connexion

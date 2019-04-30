@@ -1,5 +1,7 @@
 <?php
 
+namespace OpenClassrooms\projetopenclassroom\model;
+
 require_once("model/Connexion.php");
 
 class ChapterConnexion extends Connexion
@@ -7,7 +9,8 @@ class ChapterConnexion extends Connexion
 	public function getPosts() /** Gets chapters data from jean_forteroche database**/
 	{
 		$db = $this->dbConnect();
-		$req = $db->query('SELECT id, FK_admin, title, content, DATE_FORMAT(date_hours, \'%d/%m/%Y à %H%imin%ss\') AS date_fr FROM post ORDER BY date_hours DESC LIMIT 0, 5 ') ; 
+		$req = $db->query('SELECT id, title, content, DATE_FORMAT(date_hours, \'%d/%m/%Y à %H%imin%ss\') AS date_fr FROM post ORDER BY date_hours DESC LIMIT 0, 5 ') ; 
+
 		return $req;
 	}
 

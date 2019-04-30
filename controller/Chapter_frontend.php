@@ -6,7 +6,6 @@ function listChapter()
 {
 	$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
 	$posts = $postManager->getPosts();
-	var_dump($posts);
 
 	require('view/listChapters.php');
 }
@@ -25,7 +24,7 @@ function addChapter($id,$title,$content)
 
 function editChapter($id)
 {
-	$postManager = new \openclassroom\model\ChapterConnexion();
+	$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
 
 	$post = $postManager->getPost($postId);
 
@@ -33,6 +32,7 @@ function editChapter($id)
 		$postManager->editChapter($postId, $_POST['author'], $_POST['content']);
 		header('Location: index.php?action=post&id=' .$post['id']);
 	}
+
+	require('view/listChapters.php');
 }
 
-require('view/listChapters.php');
