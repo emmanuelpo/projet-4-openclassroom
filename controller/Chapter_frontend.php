@@ -6,6 +6,7 @@ function listChapter()
 {
 	$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
 	$posts = $postManager->getPosts();
+	
 
 	require('view/listChapters.php');
 }

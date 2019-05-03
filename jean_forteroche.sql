@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 27 avr. 2019 à 14:57
+-- Généré le :  ven. 03 mai 2019 à 13:18
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -57,14 +57,15 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `date_comment` datetime NOT NULL,
   `FK_post` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `comments`
 --
 
 INSERT INTO `comments` (`id`, `author`, `comment`, `date_comment`, `FK_post`) VALUES
-(1, 'Yvain le cavalier Lion', 'Très bon début d\'aventure', '2019-04-28 12:19:15', 1);
+(1, 'Yvain le cavalier Lion', 'Très bon début d\'aventure', '2019-04-28 12:19:15', 1),
+(2, 'Perceval', 'J\'aime beaucoup', '2019-05-03 13:35:24', 2);
 
 -- --------------------------------------------------------
 

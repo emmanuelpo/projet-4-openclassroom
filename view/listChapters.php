@@ -1,11 +1,9 @@
-
-
 <?php $title = 'Billet simple pour l\'Alaska'; ?>
 
-<?php ob_start(); ?>
 <?php require('header.php'); ?>
+<?php ob_start(); ?>
 
-<h1>Index</h1>
+
 <p class="parution">Chapitres du "Billet simple pour l'Alaska" </p>
 
 <?php
@@ -15,19 +13,19 @@ while ($data = $posts->fetch())
 	<div class="chapter">
 		<h2>
 			<?= htmlspecialchars($data['title']) ?>
-			<em> Mis en ligne le <?= $data['date_hours'] ?></em>
+			<em> Mis en ligne le <?= $data['date_fr'] ?></em>
 		</h2>
 
 		<p>
 			<?= nl2br(htmlspecialchars($data['content'])) ?>
-			<br />
-			<em><a href=""> Commentaires</a></em>
+			<br /><br />
+			<em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
 		</p>
-		
 	</div>
-}
 <?php
 }
 $posts->closeCursor();
 ?>
 <?php $content = ob_get_clean(); ?>
+
+<?php require('template.php'); ?>
