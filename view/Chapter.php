@@ -7,8 +7,8 @@
 
 <div class="chapter">
 	<h3>
-		<?= htmlspecialchars($data['title']) ?>
-		<em> Mis en ligne le <?= $data['date_fr'] ?></em>
+		<?= htmlspecialchars($post['title']) ?>
+		<em> Mis en ligne le <?= $post['date_fr'] ?></em>
 	</h3>
 
 	<p>
