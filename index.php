@@ -12,16 +12,21 @@ function matchWithAction()
     switch ($_GET['action']) {
         case 'addComment':
             if (!isset($_GET['id'])) {
-                throw new Exception('Erreur! aucun identifiant de chapitre envoyé');
+                throw new Exception('Aucun identifiant de chapitre envoyé');
             }
             if ($_GET['id'] < 1) { // instead of 0
-                throw new Exception('Erreur! aucun identifiant de chapitre envoyé');
-            }
-            if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                addComment($_GET['id'], $_POST['author'], $_POST['comment']);
+                throw new Exception('Aucun identifiant de chapitre envoyé');
             }
 
-            throw new Exception('Erreur: tout les champs ne sont pas remplis !');
+            if ($_SERVER['REQUEST_METHOD'] !== 'POST' || empty($_POST)) {
+                throw new Exception('Une erreur est survenue durant l\'ajout du commentaire !');
+            }
+
+            if (empty($_POST['author']) || empty($_POST['comment'])) {
+                throw new Exception('Tout les champs ne sont pas remplis !');
+            }
+
+            addComment($_GET['id'], $_POST['author'], $_POST['comment']);
             break;
         case 'listChapter':
             listChapter();
@@ -34,7 +39,7 @@ function matchWithAction()
                 listComment();
             }
 
-            throw new Exception('Erreur: aucun identifiant de chapitre envoyé');
+            throw new Exception('Aucun identifiant de chapitre envoyé');
             break;
         default:
             listChapter();
