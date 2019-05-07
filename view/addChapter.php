@@ -1,6 +1,11 @@
 <?php ob_start(); ?>
 
-<p class="prev_page"><a href="../index.php"> Retour à la liste des chapitres</a></p>
+<head>
+  <script src="https://cloud.tinymce.com/5/tinymce.min.js?apiKey=kj5j9xphg0gftti8bnn7r6wejkyn8f8zyii8mqhxdzxmvnhq"></script>
+  <script>tinymce.init({selector:'textarea'});</script>
+</head>
+
+<p class="prev_page"><a href="../index.php"> Retour à la liste des chapitres !</a></p>
 
 <form action="index.php?action=addChapter&amp;" method="post">
 		<div>
