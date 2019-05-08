@@ -25,7 +25,7 @@ class ChapterConnexion extends Connexion
 		return $post;
 	}
 
-	public function postChapter($id,$title,$content)
+	public function postChapter($id,$title,$content) /** Préparation à l'insertion d'un chapitre dans la table post **/
 	{
 		$db = $this->dbConnect();
 		$chapters = $db->prepare('INSERT INTO post(FK_admin, title, content, date_hours) VALUES(1, ?, ?, NOW())');
@@ -35,7 +35,7 @@ class ChapterConnexion extends Connexion
 
 	}
 
-	public function updateChapter($id,$title,$content)
+	public function updateChapter($id,$title,$content)	/** Préparation de la modification d'un chapitre dans la table post **/
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE post SET title = :title, content = :content, date_hours = NOW() WHERE id = :id');
@@ -44,7 +44,7 @@ class ChapterConnexion extends Connexion
 		return $newChapter;
 	}
 
-	public function deleteChapter($id,$title,$content)
+	public function deleteChapter($id,$title,$content) /** Préparation de la suppression d'un chapitre dans la table post **/
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('DELETE FROM post WHERE id = ?, title = ?, content = ?');

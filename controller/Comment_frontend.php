@@ -2,7 +2,7 @@
 
 require_once('model/CommentConnexion.php');
 
-function listComment()
+function listComment()	/** Permet d'afficher les commentaires d'un chapitre **/
 {
 	$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
 	$commentManager = new \OpenClassrooms\projetopenclassroom\model\CommentConnexion();
@@ -13,7 +13,7 @@ function listComment()
 	require('view/Chapter.php');
 }
 
-function addComment($FK_post, $author, $comment)
+function addComment($FK_post, $author, $comment)  /** Permet d'ajouter un commentaire dans un chapitre **/
 {
 	$commentManager = new \OpenClassrooms\projetopenclassroom\model\CommentConnexion();
 
@@ -27,7 +27,7 @@ function addComment($FK_post, $author, $comment)
 	}
 }
 
-function deleteComment($FK_post, $author, $comment)
+function deleteComment($FK_post, $author, $comment)	/** Permet de supprimer un commentaire d'un chapitre **/
 {
 	$commentManager = new \OpenClassrooms\projetopenclassroom\model\CommentConnexion();
 

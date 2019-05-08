@@ -5,7 +5,7 @@
 
 <p class="prev_page"><a href="index.php"> Retour à la liste des chapitres</a></p>
 
-<div class="chapter">
+<div class="chapter">														<!--Affichage du chapitre -->
 	<h3>
 		<?= htmlspecialchars($post['title']) ?>
 		<em> Mis en ligne le <?= $post['date_fr'] ?></em>
@@ -18,7 +18,7 @@
 <div class ="commentaires">
 <h2>Commentaires</h2>
 
-<form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
+<form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">   <!-- Création et publication d'un commentaire sur un chapitre -->
 	<div>
 		<label for="author"> Auteur</label><br />
 		<input type="text" id="author" name="author" />
@@ -33,7 +33,7 @@
 </form>
 
 <?php
-while ($comment = $comments->fetch())
+while ($comment = $comments->fetch())	/** Affichage des commentaire du chapitre sur lequel nous nous trouvons **/
 {
 ?>
 	<p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_comment_fr'] ?>

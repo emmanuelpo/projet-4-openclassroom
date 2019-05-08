@@ -6,7 +6,7 @@
 <p class="parution">Chapitres du "Billet simple pour l'Alaska" </p>
 
 <?php
-while ($data = $posts->fetch())
+while ($data = $posts->fetch())			/** Affiche tout les chapitres de la base de données **/
 {
 ?>
 	<div class="chapter">
@@ -18,7 +18,7 @@ while ($data = $posts->fetch())
 		<p>
 			<?= nl2br(htmlspecialchars($data['content'])) ?>
 			<br /><br />
-			<em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
+			<em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>	<!-- Permet de rejoindre la page d'un chapitre -->
 		</p>
 	</div>
 
@@ -30,7 +30,7 @@ $posts->closeCursor();
 
 <div>
 
-	<em><a href="view/addChapter.php">Ajouter un Chapitre</a></em>
+	<em><a href="index.php?action=">Ajouter un Chapitre</a></em>
 	
 </div>
 
