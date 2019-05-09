@@ -12,24 +12,18 @@ while ($data = $posts->fetch())			/** Affiche tout les chapitres de la base de d
 	<div class="chapter">
 		<h2>
 			<?= htmlspecialchars($data['title']) ?>
-			<em> Mis en ligne le <?= $data['date_fr'] ?></em> <em><a href="index.php?action=editChapter&amp;id=<?= $data['id'] ?>"> Modifier le Chapitre</a></em>
+			<em> Mis en ligne le <?= $data['date_fr'] ?></em> <em>
 		</h2>
 			<?= nl2br($data['content']) ?>
 			<br /><br />
-			<em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em><!-- Permet de rejoindre la page d'un chapitre -->
+			<em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>	<!-- Permet de rejoindre la page d'un chapitre -->
 	</div>
-
 
 <?php
 }
 $posts->closeCursor();
 ?>
 
-<div>
-	<br />
-	<strong><a href="index.php?action=addChapter">Ajouter un Chapitre</a></strong>
-	
-</div>
 
 <?php $content = ob_get_clean(); ?>
 

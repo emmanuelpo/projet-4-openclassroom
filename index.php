@@ -14,9 +14,6 @@ try{
 				throw new Exception('Erreur: aucun identifiant de chapitre envoyé');
 			}
 		}
-		elseif ($_GET['action'] == 'writeChapter'){
-			writeChapter();
-		}
 		elseif ($_GET['action'] == 'addComment') {        /** Ajouter un commentaire sur un chapitre **/
 			if (isset($_GET['id']) && $_GET['id'] > 0){
 				if (!empty($_POST['author']) && !empty($_POST['comment'])) {
@@ -38,17 +35,17 @@ try{
 				throw new Exception("Aucun identifiant de commentaire envoyé ");
 			}
 		}
-		elseif ($_GET['action'] == 'addChapter') {	 					 /** Ajouter un chapitre **/
-			if (isset($_GET['id']) && $_GET['id'] > 0){
+		elseif ($_GET['action'] == 'addChapter') {	/** Ajouter un chapitre **/
+			if (!empty($_POST)){	 
 				if (!empty($_POST['title']) && !empty($_POST['content'])) {
-					addChapter($_GET['id'], $_POST['title'], $_POST['content']);
+					addChapter($_POST['title'], $_POST['content']);
 				}
 				else {
 					echo 'Erreur: tout les champs ne sont pas remplis !';
-					}
-				}
+				}					
+			}
 			else{
-					echo 'Erreur! aucun identifiant de chapitre envoyé';
+				writeChapter();
 			}
 		}
 		elseif ($_GET['action'] == 'editChapter'){						/** Editer un chapitre **/

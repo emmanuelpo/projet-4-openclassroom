@@ -16,9 +16,11 @@ function writeChapter()				   /** Appelle la page permettant d'écrire de nouvea
 	require('view/addChapter.php');
 }
 
-function addChapter($id,$title,$content)	/** Permet de créer de nouveau chapitre **/
+function addChapter($title,$content)	/** Permet de créer de nouveau chapitre **/
 {
-	$affectedLines = postChapter($id,$title,$content);
+	$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
+
+	$affectedLines = $postManager->postChapter($title,$content);
 
 	if ($affectedLines === false){
 		die('Impossible d\'ajouter le chapitre !');
@@ -32,7 +34,7 @@ function editChapter($id)					/** Permet d'éditer des chapitres existants **/
 {
 	$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
 
-	$post = $postManager->getPost($postId);
+	$post = $postManager->getPost($id);
 
 	if (!empty($_POST['title']) && !empty($_POST['content'])) {
 		$postManager->editChapter($postId, $_POST['title'], $_POST['content']);

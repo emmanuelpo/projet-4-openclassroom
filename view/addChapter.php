@@ -5,9 +5,9 @@
   <script>tinymce.init({selector:'textarea'});</script>
 </head>
 
-<p class="prev_page"><a href="../index.php"> Retour à la liste des chapitres !</a></p>
+<p class="prev_page"><a href="index.php"> Retour à la liste des chapitres !</a></p>
 
-<form action="index.php?action=addChapter&amp;id=<?= $post['id'] ?>" method="post">	<!-- Création d'un article avec son titre et son texte -->
+<form action="index.php?action=addChapter" method="post">	<!-- Création d'un article avec son titre et son texte -->
 		<div>
 		<label for="title"> Titre du Chapitre </label>
 		<input type="varchar" id="title" name="title" />

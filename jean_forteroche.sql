@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 07 mai 2019 à 22:28
+-- Généré le :  jeu. 09 mai 2019 à 01:34
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -82,18 +82,20 @@ CREATE TABLE IF NOT EXISTS `post` (
   `FK_admin` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `content` text NOT NULL,
+  `state` tinyint(1) NOT NULL DEFAULT '1',
   `date_hours` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_admin` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `post`
 --
 
-INSERT INTO `post` (`id`, `FK_admin`, `title`, `content`, `date_hours`) VALUES
-(1, 1, 'Un début de voyage du bon pied ', 'Lorem Ipsum', '2019-04-20 15:32:31'),
-(2, 1, 'Un voyage semé d\'embûches', 'Pour l\'instant, mon début de voyage commence bien ', '2019-04-21 09:21:20');
+INSERT INTO `post` (`id`, `FK_admin`, `title`, `content`, `state`, `date_hours`) VALUES
+(1, 1, 'Un début de voyage du bon pied ', 'Lorem Ipsum', 1, '2019-04-20 15:32:31'),
+(2, 1, 'Un voyage semé d\'embûches', 'Pour l\'instant, mon début de voyage commence bien ', 1, '2019-04-21 09:21:20'),
+(3, 1, 'La suite du voyage', '<p><strong>Je prends la <em>rel&egrave;ve</em></strong></p>', 1, '2019-05-08 12:53:57');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
