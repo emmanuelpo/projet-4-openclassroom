@@ -24,15 +24,13 @@ class CommentConnexion extends Connexion
 		return $affectedLines;
 	}
 
-	public function getComment($commentId)
+	public function reportComment($id,$author,$comment) /** Préparation au report d'un commentaire dans la base de données **/
 	{
-		$db = $this->dbConnect();
-		$request = $db->prepare('SELECT id, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr, FK_post FROM comments WHERE id = ?');
-		$request->execute(array($commentId));
-		$comment = $request->fetch();
-		$request->closeCursor();
-		return $comment;
+		$db =$this->dbConnect();
+		$rep = $db->prepare('UPDATE comments SET report = TRUE WHERE id = ?');
+		return $rep;
 	}
+
 
 	public function deleteComment($id,$author,$comment)	/** Préparation à la suppression d'un commentaire dans la base de données **/
 	{

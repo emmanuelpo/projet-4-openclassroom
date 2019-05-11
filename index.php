@@ -50,7 +50,7 @@ try{
 		}
 		elseif ($_GET['action'] == 'editChapter'){						/** Editer un chapitre **/
 			if(isset($_GET['id']) && $_GET['id'] > 0){
-				editChapter($_GET['id']);	
+				editChapter($_GET['id']);
 			}
 			else{
 				throw new Exception("Aucun identifiant de chapitre envoyé");

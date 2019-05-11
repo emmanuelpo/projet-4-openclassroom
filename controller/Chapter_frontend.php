@@ -39,7 +39,7 @@ function addChapter($title,$content)	/** Permet de créer de nouveau chapitre **
 	}
 }
 
-function editChapter($title,$content)					/** Permet d'éditer des chapitres existants **/
+function editChapter($id)					/** Permet d'éditer des chapitres existants **/
 {
 	$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
 

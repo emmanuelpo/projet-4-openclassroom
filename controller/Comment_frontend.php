@@ -33,3 +33,4 @@ function deleteComment($FK_post, $author, $comment)	/** Permet de supprimer un c
 
 	$deleteComment = $commentManager->deleteComment($id,$author,$comment);
 }
+

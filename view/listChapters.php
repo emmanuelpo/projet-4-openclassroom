@@ -1,9 +1,7 @@
-
-
 <?php require('header.php'); ?>
 <?php ob_start(); ?>
 
-<p class="parution">Chapitres du "Billet simple pour l'Alaska" </p>
+<h1 class="parution">Chapitres du "Billet simple pour l'Alaska" </h1>
 
 <?php
 while ($data = $posts->fetch())			/** Affiche tout les chapitres de la base de données **/

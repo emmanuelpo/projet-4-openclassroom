@@ -1,8 +1,42 @@
 body
 {
-	background-color: cyan;
+	background-color: #3390FF;
 	padding: 0;
 	margin: 0;
+	text-decoration: none;
+	
+}
+
+a
+{
+	text-decoration: none;
+	color: yellow;
+}
+
+#menu
+{
+	margin-bottom: 30px;
+	width:1920px;
+	background-color: #33FFAF;
+	height:60px;
+}
+
+ul
+{
+	float:right;
+	padding-right: 20px;
+}
+
+li 
+{
+    display : inline;
+    text-align:right;
+    padding-right: 10px;
+}
+
+li a
+{
+	color:blue;
 }
 
 #footer /** Pied de page **/
@@ -11,10 +45,9 @@ body
 	bottom: 0;
 	width: 1920px;
 	height: 55px;
-	background-color: beige;
+	background-color: #33DDFF;
 	padding-top: 5px;
 	padding-left: 40%;
-	margin-bottom: 10px;
 }
 
 #footer p

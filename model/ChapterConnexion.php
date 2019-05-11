@@ -6,7 +6,7 @@ require_once("model/Connexion.php");
 
 class ChapterConnexion extends Connexion
 {
-	public function getPosts() /** Gets chapters data from jean_forteroche database**/
+	public function getPosts() /** Récupération des chapitres pour leur affichage **/
 	{
 		$db = $this->dbConnect();
 		$req = $db->query('SELECT id, title, content, DATE_FORMAT(date_hours, \'%d/%m/%Y à %Hh%i\') AS date_fr FROM post WHERE state = TRUE ORDER BY date_hours DESC LIMIT 0, 5 ') ; 
@@ -15,7 +15,7 @@ class ChapterConnexion extends Connexion
 
 	}
 
-	public function getPost($postId)
+	public function getPost($postId) /** Récupération des chapitres dans un tableau **/
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('SELECT id, title, content, DATE_FORMAT(date_hours, \'%d/%m/%Y à %Hh%i\') AS date_fr FROM post WHERE id = ?');
@@ -25,7 +25,7 @@ class ChapterConnexion extends Connexion
 		return $post;
 	}
 
-	public function postChapter($title,$content) /** Préparation à l'insertion d'un chapitre dans la table post **/
+	public function postChapter($id) /** Préparation à l'insertion d'un chapitre dans la table post **/
 	{
 		$db = $this->dbConnect();
 		$chapters = $db->prepare('INSERT INTO post(FK_admin, title, content, date_hours) VALUES(1, ?, ?, NOW())');
@@ -35,16 +35,16 @@ class ChapterConnexion extends Connexion
 
 	}
 
-	public function editChapter($title,$content)	/** Préparation de la modification d'un chapitre dans la table post **/
+	public function editChapter($id,$title,$content)	/** Préparation de la modification d'un chapitre dans la table post **/
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE post SET title = :title, content = :content, date_hours = NOW() WHERE id = :id');
-		$newChapter = $req->execute(array('title' => $title, 'content' =>$content));
+		$newChapter = $req->execute(array('id' => $id, 'content' =>$content));
 
 		return $newChapter;
 	}
 
-	public function deleteChapter($id) /** Préparation de la suppression d'un chapitre dans la table post **/
+	public function deleteChapter($id,$title,$content) /** Préparation de la suppression d'un chapitre dans la table post **/
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE post SET state = FALSE WHERE id = ?');
