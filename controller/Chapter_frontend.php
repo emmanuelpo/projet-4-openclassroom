@@ -11,6 +11,15 @@ function listChapter()					/** Permet d'afficher la liste des chapitre en appela
 	require('view/listChapters.php');
 }
 
+function listChapterAdmin()
+{
+	$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
+	$posts = $postManager->getPosts();
+	
+
+	require('view/listChapters.php');
+}
+
 function writeChapter()				   /** Appelle la page permettant d'écrire de nouveau chapitre **/
 {
 	require('view/addChapter.php');
@@ -30,18 +39,20 @@ function addChapter($title,$content)	/** Permet de créer de nouveau chapitre **
 	}
 }
 
-function editChapter($id)					/** Permet d'éditer des chapitres existants **/
+function editChapter($title,$content)					/** Permet d'éditer des chapitres existants **/
 {
 	$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
 
 	$post = $postManager->getPost($id);
 
 	if (!empty($_POST['title']) && !empty($_POST['content'])) {
-		$postManager->editChapter($postId, $_POST['title'], $_POST['content']);
-		header('Location: index.php?action=post&id=' .$post['id']);
+		$postManager->editChapter($_POST['title'], $_POST['content']);
+		header('Location: index.php?action=editChapter&id=' .$id);
+		
 	}
 
-	require('view/listChapters.php');
+	require('view/editChapter.php');
+
 }
 
 function deleteChapter($id)				/** Permet de supprimer des chapitres existants **/

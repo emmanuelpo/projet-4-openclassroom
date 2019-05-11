@@ -35,16 +35,16 @@ class ChapterConnexion extends Connexion
 
 	}
 
-	public function updateChapter($id,$title,$content)	/** Préparation de la modification d'un chapitre dans la table post **/
+	public function editChapter($title,$content)	/** Préparation de la modification d'un chapitre dans la table post **/
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE post SET title = :title, content = :content, date_hours = NOW() WHERE id = :id');
-		$newChapter = $req->execute(array('id' => $id, 'content' =>$content));
+		$newChapter = $req->execute(array('title' => $title, 'content' =>$content));
 
 		return $newChapter;
 	}
 
-	public function deleteChapter($id,$title,$content) /** Préparation de la suppression d'un chapitre dans la table post **/
+	public function deleteChapter($id) /** Préparation de la suppression d'un chapitre dans la table post **/
 	{
 		$db = $this->dbConnect();
 		$req = $db->prepare('UPDATE post SET state = FALSE WHERE id = ?');

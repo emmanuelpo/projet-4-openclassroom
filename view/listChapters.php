@@ -1,4 +1,4 @@
-<?php $title = 'Billet simple pour l\'Alaska'; ?>
+
 
 <?php require('header.php'); ?>
 <?php ob_start(); ?>
@@ -30,6 +30,8 @@ $posts->closeCursor();
 	<strong><a href="index.php?action=addChapter">Ajouter un Chapitre</a></strong>
 	
 </div>
+
+<?php require('footer.php'); ?>
 
 <?php $content = ob_get_clean(); ?>
 

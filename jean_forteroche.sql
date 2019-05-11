@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 09 mai 2019 à 01:34
+-- Généré le :  sam. 11 mai 2019 à 10:03
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -54,21 +54,23 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `author` varchar(255) NOT NULL,
   `comment` text NOT NULL,
+  `report` tinyint(1) NOT NULL DEFAULT '0',
   `date_comment` datetime NOT NULL,
   `FK_post` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `comments`
 --
 
-INSERT INTO `comments` (`id`, `author`, `comment`, `date_comment`, `FK_post`) VALUES
-(1, 'Yvain le cavalier Lion', 'Très bon début d\'aventure', '2019-04-28 12:19:15', 1),
-(2, 'Perceval', 'J\'aime beaucoup', '2019-05-03 13:35:24', 2),
-(3, 'Gauvin', 'Cool l\'histoire', '2019-05-05 14:00:59', 2),
-(4, 'Arthour', 'Pas changer assiette pour fromage', '2019-05-05 14:02:26', 1),
-(5, 'Gauvin', 'La suite', '2019-05-07 15:47:02', 2);
+INSERT INTO `comments` (`id`, `author`, `comment`, `report`, `date_comment`, `FK_post`) VALUES
+(1, 'Yvain le cavalier Lion', 'Très bon début d\'aventure', 0, '2019-04-28 12:19:15', 1),
+(2, 'Perceval', 'J\'aime beaucoup', 0, '2019-05-03 13:35:24', 2),
+(3, 'Gauvin', 'Cool l\'histoire', 0, '2019-05-05 14:00:59', 2),
+(4, 'Arthour', 'Pas changer assiette pour fromage', 0, '2019-05-05 14:02:26', 1),
+(5, 'Gauvin', 'La suite', 0, '2019-05-07 15:47:02', 2),
+(6, 'Arthour', 'bonjour', 0, '2019-05-09 11:13:34', 3);
 
 -- --------------------------------------------------------
 

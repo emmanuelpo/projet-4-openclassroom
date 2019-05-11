@@ -29,7 +29,7 @@ try{
 		}
 		elseif ($_GET['action'] == 'deleteComment') {					/** Supprimer un commentaire sur un chapitre **/
 			if(isset($_GET['id']) && $_GET['id'] > 0){
-				deleteChapter($_GET['id']);
+				deleteComment($_GET['id']);
 			}
 			else{
 				throw new Exception("Aucun identifiant de commentaire envoyé ");
@@ -70,5 +70,5 @@ try{
 	}
 }
 catch(Exception $e) { // S'il y a eu une erreur, alors...
-    echo 'Erreur : ';
+    echo 'Erreur : Désolé pour la gêne occasionné';
 }
