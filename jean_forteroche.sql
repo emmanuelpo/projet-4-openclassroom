@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  sam. 11 mai 2019 à 10:03
+-- Généré le :  Dim 12 mai 2019 à 00:49
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `date_comment` datetime NOT NULL,
   `FK_post` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `comments`
@@ -70,7 +70,9 @@ INSERT INTO `comments` (`id`, `author`, `comment`, `report`, `date_comment`, `FK
 (3, 'Gauvin', 'Cool l\'histoire', 0, '2019-05-05 14:00:59', 2),
 (4, 'Arthour', 'Pas changer assiette pour fromage', 0, '2019-05-05 14:02:26', 1),
 (5, 'Gauvin', 'La suite', 0, '2019-05-07 15:47:02', 2),
-(6, 'Arthour', 'bonjour', 0, '2019-05-09 11:13:34', 3);
+(6, 'Arthour', 'bonjour', 0, '2019-05-09 11:13:34', 3),
+(7, 'Gauvin', 'efzfzef', 0, '2019-05-11 12:19:33', 3),
+(8, 'Gauvin', 'okey', 0, '2019-05-12 01:18:37', 3);
 
 -- --------------------------------------------------------
 
@@ -88,7 +90,7 @@ CREATE TABLE IF NOT EXISTS `post` (
   `date_hours` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_admin` (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `post`
@@ -97,7 +99,8 @@ CREATE TABLE IF NOT EXISTS `post` (
 INSERT INTO `post` (`id`, `FK_admin`, `title`, `content`, `state`, `date_hours`) VALUES
 (1, 1, 'Un début de voyage du bon pied ', 'Lorem Ipsum', 1, '2019-04-20 15:32:31'),
 (2, 1, 'Un voyage semé d\'embûches', 'Pour l\'instant, mon début de voyage commence bien ', 1, '2019-04-21 09:21:20'),
-(3, 1, 'La suite du voyage', '<p><strong>Je prends la <em>rel&egrave;ve</em></strong></p>', 1, '2019-05-08 12:53:57');
+(3, 1, 'La suite du voyage', '<p><strong>Je prends la <em>rel&egrave;ve ici et maintenant ou la bas peut &ecirc;tre</em></strong></p>', 1, '2019-05-12 01:22:59'),
+(5, 1, 'Salut', '<p>bonjour 123456 bonjour bonjour</p>', 1, '2019-05-12 00:11:54');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
