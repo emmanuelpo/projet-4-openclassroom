@@ -13,10 +13,68 @@ a
 	color: yellow;
 }
 
+#adminTitle
+{
+	margin-left:25%;
+}
+
+#containerChapter
+{
+	margin-left: 50px;
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
+
+#addChapter
+{
+	margin-left: 50px;
+	font-weight: bold;
+
+}
+
+#addChapter a
+{
+	color: purple;
+}
+
+#signalsComment
+{
+	margin-top: 50px;
+	margin-left: 50px;
+}
+
+.editZone
+{
+
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.prev_page
+{
+	margin-left: 10px;
+}
+
+.titleZone
+{
+	margin-left: 10px;
+}
+
+.valider
+{
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#deleteLink
+{
+	margin-left: 10px;
+}
+
 #menu
 {
 	margin-bottom: 30px;
-	width:1920px;
+	width:100%;
 	background-color: #33FFAF;
 	height:60px;
 }
@@ -25,6 +83,7 @@ ul
 {
 	float:right;
 	padding-right: 20px;
+	padding-top: 5px;
 }
 
 li 
@@ -43,7 +102,7 @@ li a
 {
 	position: fixed;
 	bottom: 0;
-	width: 1920px;
+	width: 100%;
 	height: 55px;
 	background-color: #33DDFF;
 	padding-top: 5px;

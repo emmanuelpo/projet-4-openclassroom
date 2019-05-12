@@ -25,7 +25,7 @@
 while ($comment = $comments->fetch())	/** Affichage des commentaire du chapitre sur lequel nous nous trouvons **/
 {
 ?>
-	<p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_comment_fr'] ?>
+	<p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_comment_fr'] ?> <a href="index.php?action=signalComment&amp;id=<?= $_GET['id'] ?>"> Signaler le commentaire</a>
 	<p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
 
 

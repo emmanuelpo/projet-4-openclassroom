@@ -31,7 +31,7 @@ class ChapterController
 		require('view/addChapter.php');
 	}
 
-	public function addChapter($id,$title,$content)	/** Permet de créer de nouveau chapitre **/
+	public function addChapter($title,$content)	/** Permet de créer de nouveau chapitre **/
 	{
 		$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
 
@@ -64,7 +64,13 @@ class ChapterController
 	{
 		$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
 
-		$deleteLines = $postManager->deleteChapter($id,$title,$content);
+        $post = $postManager->getPost($id);
+
+        if (isset($_GET['id'])) {
+           $postManager->deleteChapter($_GET['id']);
+           header('Location: index.php');
+        }
+
 	}
 
 }

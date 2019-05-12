@@ -1,7 +1,10 @@
 <?php require('header.php'); ?>
 <?php ob_start(); ?>
 
-<h1 class="parution">Chapitres du "Billet simple pour l'Alaska" </h1>
+<h1 id="adminTitle">Page d'administration du blog "Billet simple pour l'Alaska" par Jean Forteroche </h1>
+
+
+<div id="containerChapter">
 
 <?php
 while ($data = $posts->fetch())			/** Affiche tout les chapitres de la base de données **/
@@ -23,10 +26,16 @@ while ($data = $posts->fetch())			/** Affiche tout les chapitres de la base de d
 $posts->closeCursor();
 ?>
 
-<div>
+</div>
+
+<div id="addChapter">
 	<br />
-	<strong><a href="index.php?action=addChapter">Ajouter un Chapitre</a></strong>
+	<a href="index.php?action=addChapter">Ajouter un Chapitre</a>
 	
+</div>
+
+<div id="signalsComment">
+    <h3> Commentaires signalés</h3>
 </div>
 
 <?php require('footer.php'); ?>

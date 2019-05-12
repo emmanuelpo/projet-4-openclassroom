@@ -9,7 +9,7 @@ class CommentConnexion extends Connexion
 	public function getComments($postId)		/**Récupération des commentaires dans la table comments de la base de données **/
 	{
 		$db = $this->dbConnect();
-		$comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr FROM comments where FK_post = ? ORDER BY date_comment DESC');
+		$comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr FROM comments WHERE FK_post = ? AND report = FALSE ORDER BY date_comment DESC');
 		$comments->execute(array($postId));
 
 		return $comments;
@@ -31,6 +31,15 @@ class CommentConnexion extends Connexion
 		return $rep;
 	}
 
+    public function postReportComment($postId) /** Récupération des commentaires reportés de la base de données **/
+    {
+        $db = $this->dbConnect();
+        $comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr FROM comments where FK_post = ? AND report = TRUE ORDER BY date_comment DESC');
+        $comments->execute(array($postId));
+
+        return $comments;
+    }
+
 
 	public function deleteComment($id,$author,$comment)	/** Préparation à la suppression d'un commentaire dans la base de données **/
 	{
@@ -38,4 +47,6 @@ class CommentConnexion extends Connexion
 		$req = $db->prepare('DELETE FROM comments WHERE id = ?, author = ?, comment = ?');
 		return $req;
 	}
+
+
 }

@@ -9,7 +9,7 @@ class ChapterConnexion extends Connexion
 	public function getPosts() /** Récupération des chapitres pour leur affichage **/
 	{
 		$db = $this->dbConnect();
-		$req = $db->query('SELECT id, title, content, DATE_FORMAT(date_hours, \'%d/%m/%Y à %Hh%i\') AS date_fr FROM post WHERE state = TRUE ORDER BY date_hours DESC LIMIT 0, 5 ') ; 
+		$req = $db->query('SELECT id, title, content, DATE_FORMAT(date_hours, \'%d/%m/%Y à %Hh%i\') AS date_fr FROM post WHERE state = TRUE ORDER BY date_hours DESC LIMIT 0, 5 ') ;
 
 		return $req;
 
@@ -47,10 +47,13 @@ class ChapterConnexion extends Connexion
 
 	}
 
-	public function deleteChapter($id,$title,$content) /** Préparation de la suppression d'un chapitre dans la table post **/
+	public function deleteChapter($id) /** Préparation de la suppression d'un chapitre dans la table post **/
 	{
 		$db = $this->dbConnect();
-		$req = $db->prepare('UPDATE post SET state = FALSE WHERE id = ?');
-		return $req;
+		$req = $db->prepare('UPDATE post SET state = FALSE WHERE id = :id');
+		$newsuppr = $req->execute(array('id' => $id));
+
+		return $newsuppr;
+
 	}
 }

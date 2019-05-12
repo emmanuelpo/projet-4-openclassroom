@@ -9,21 +9,22 @@
 <p class="prev_page"><a href="index.php"> Retour à la liste des chapitres !</a></p>
 
 <form action="index.php?action=editChapter&amp;id=<?= $_GET['id'] ?>" method="post"> <!-- Modification d'un article avec son titre et son texte -->
-	<div>
+	<div class="titleZone">
 		<label for="title"> Titre du Chapitre </label>
 		<input type="varchar" id="title" name="title" value="<?= ($post['title']) ?>" />
 	</div>
-	<div>
+	<div class="editZone">
 		<label for="content"></label><br />
-		<textarea id="content" name="content"><?= ($post['content']) ?></textarea>
+		<textarea id="content" name="content" style="height: 450px"><?= ($post['content']) ?></textarea>
 	</div>	
-	<div>
+	<div class="valider">
 		<br/><input type="submit" />
 	</div>
 </form>
 
-
-<a href="index.php?action=deleteChapter&amp;id=<?= $_GET['id'] ?>"> Supprimer le chapitre</a>
+<div id="deleteLink">
+    <a href="index.php?action=deleteChapter&amp;id=<?= $_GET['id'] ?>"> Supprimer le chapitre</a>
+</div>
 
 <?php require('footer.php'); ?>
 
