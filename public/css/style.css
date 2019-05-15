@@ -98,6 +98,11 @@ li a
 	color:blue;
 }
 
+#loginform
+{
+    text-align: center;
+}
+
 #footer /** Pied de page **/
 {
 	position: fixed;

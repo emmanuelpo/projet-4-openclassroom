@@ -19,33 +19,33 @@
 	</p>
 </div>
 <div class ="commentaires">
-<h2>Commentaires</h2>
+    <h2>Commentaires</h2>
 
-<?php
-while ($comment = $comments->fetch())	/** Affichage des commentaire du chapitre sur lequel nous nous trouvons **/
-{
-?>
-	<p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_comment_fr'] ?> <a href="index.php?action=signalComment&amp;id=<?= $_GET['id'] ?>"> Signaler le commentaire</a>
-	<p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+    <?php
+    while ($comment = $comments->fetch())	/** Affichage des commentaire du chapitre sur lequel nous nous trouvons **/
+    {
+    ?>
+        <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['date_comment_fr'] ?> <a href="index.php?action=signalComment&amp;id=<?= $comment['id'] ?>&amp;post=<?= $_GET['id'] ?>"> Signaler le commentaire</a>
+        <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
 
 
-<?php
-}
-?>
+    <?php
+    }
+    ?>
 
-<form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">   <!-- Création et publication d'un commentaire sur un chapitre -->
-	<div>
-		<label for="author"> Auteur</label><br />
-		<input type="text" id="author" name="author" />
-	</div>
-	<div>
-		<label for="comment">Commentaire</label><br />
-		<textarea id="comment" name="comment"></textarea>
-	</div>
-	<div>
-		<input type="submit" />
-	</div>
-</form>
+    <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">   <!-- Création et publication d'un commentaire sur un chapitre -->
+        <div>
+            <label for="author"> Auteur</label><br />
+            <input type="text" id="author" name="author" />
+        </div>
+        <div>
+            <label for="comment">Commentaire</label><br />
+            <textarea id="comment" name="comment"></textarea>
+        </div>
+        <div>
+            <input type="submit" />
+        </div>
+    </form>
 
 </div>
 <?php $content = ob_get_clean(); ?>

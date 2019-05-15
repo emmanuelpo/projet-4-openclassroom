@@ -32,10 +32,37 @@ class CommentController
 		}
 	}
 
-	public function deleteComment($FK_post, $author, $comment)	/** Permet de supprimer un commentaire d'un chapitre **/
+	public function deleteComment($id)	/** Permet de supprimer un commentaire d'un chapitre **/
 	{
 		$commentManager = new \OpenClassrooms\projetopenclassroom\model\CommentConnexion();
 
-		$deleteComment = $commentManager->deleteComment($id,$author,$comment);
+		$deleteComment = $commentManager->deleteComment($id);
+        header('Location: index.php');
 	}
+
+	public function listReport()                                /** Permet d'afficher la liste des commentaires signalés   **/
+    {
+        $commentManager = new \OpenClassrooms\projetopenclassroom\model\CommentConnexion();
+
+        $reportList = $commentManager->postReportComment();
+
+        return $reportList;
+
+    }
+
+    public function reportComment($id,$FK_post)                             /**Permet de signaler un commentaire **/
+    {
+        $commentManager = new \OpenClassrooms\projetopenclassroom\model\CommentConnexion();
+
+        $report = $commentManager->reportComment($id);
+        header('Location: index.php?action=post&id='. $FK_post);
+    }
+
+    public function validComment($id)                             /**Permet de valider un commentaire signalé **/
+    {
+        $commentManager = new \OpenClassrooms\projetopenclassroom\model\CommentConnexion();
+
+        $report = $commentManager->validComment($id);
+        header('Location: index.php');
+    }
 }
