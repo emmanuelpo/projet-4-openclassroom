@@ -3,7 +3,9 @@
 <?php require('header.php'); ?>
 <?php ob_start(); ?>
 
-<p class="parution">Chapitres du "Billet simple pour l'Alaska" </p>
+<p class="titreChapitres">Billet simple pour l'Alaska</p>
+
+<div class="containerChapter">
 
 <?php
 while ($data = $posts->fetch())			/** Affiche tout les chapitres de la base de données **/
@@ -12,11 +14,13 @@ while ($data = $posts->fetch())			/** Affiche tout les chapitres de la base de d
 	<div class="chapter">
 		<h2>
 			<?= htmlspecialchars($data['title']) ?>
-			<em> Mis en ligne le <?= $data['date_fr'] ?></em> <em>
 		</h2>
+		<p class="dateParution"><em> Mis en ligne le <?= $data['date_fr'] ?></em></p>
+		<p class="contentChapter">
 			<?= nl2br($data['content']) ?>
 			<br /><br />
-			<em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em><!-- Permet de rejoindre la page d'un chapitre -->
+		</p>
+			<em><a class="fullChapter" href="index.php?action=post&amp;id=<?= $data['id'] ?>">Voir le Chapitre</a></em><!-- Permet de rejoindre la page d'un chapitre -->
 	</div>
 
 
@@ -25,6 +29,7 @@ while ($data = $posts->fetch())			/** Affiche tout les chapitres de la base de d
 $posts->closeCursor();
 ?>
 
+</div>
 
 <?php require('footer.php'); ?>
 

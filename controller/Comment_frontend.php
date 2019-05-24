@@ -63,6 +63,6 @@ class CommentController
         $commentManager = new \OpenClassrooms\projetopenclassroom\model\CommentConnexion();
 
         $report = $commentManager->validComment($id);
-        header('Location: index.php');
+        header('Location: index.php?action=listChapter');
     }
 }

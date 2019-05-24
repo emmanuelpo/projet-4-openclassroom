@@ -1,10 +1,11 @@
 <?php
 require('controller/Chapter_frontend.php');
 require('controller/Comment_frontend.php');
+require('controller/Login_frontend.php');
 
 $chap = new \OpenClassrooms\projetopenclassroom\controller\ChapterController();
 $comment = new \OpenClassrooms\projetopenclassroom\controller\CommentController();
-
+$login = new \OpenClassrooms\projetopenclassroom\controller\LoginController();
 
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listChapter') { /** Récupérer la liste des chapitres sur la page **/
@@ -15,6 +16,10 @@ $comment = new \OpenClassrooms\projetopenclassroom\controller\CommentController(
             } else {
                 throw new Exception('Erreur: aucun identifiant de chapitre envoyé');
             }
+        } elseif ($_GET['action'] == 'visitorView'){  /** Aller sur la page des chapitres (mode visiteur) **/
+        	$chap->visitorView();
+        } elseif ($_GET['action'] == 'login'){ 		  /** Aller sur la page de connexion **/
+        	$login->loginPage();
         } elseif ($_GET['action'] == 'addComment') {  /** Ajouter un commentaire sur un chapitre **/
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
@@ -47,7 +52,7 @@ $comment = new \OpenClassrooms\projetopenclassroom\controller\CommentController(
                     echo 'Erreur: tout les champs ne sont pas remplis !';
                 }
             } else {
-                $chap->writeChapter();
+                $chap->writeChapter();	/** Aller sur la page pour écrire un nouveau chapitre **/
             }
         } elseif ($_GET['action'] == 'editChapter') {  /** Editer un chapitre **/
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -64,7 +69,7 @@ $comment = new \OpenClassrooms\projetopenclassroom\controller\CommentController(
             }
         }
     } else {
-        $chap->listChapter();
+        $chap->main();
         /** Renvoie à la première page du site **/
     }
 

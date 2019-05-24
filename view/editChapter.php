@@ -6,7 +6,7 @@
   <script>tinymce.init({selector:'textarea'});</script>
 </head>
 
-<p class="prev_page"><a href="index.php"> Retour à la liste des chapitres !</a></p>
+<p class="prev_page"><a href="index.php?action=listChapter"> Retour à la liste des chapitres !</a></p>
 
 <form action="index.php?action=editChapter&amp;id=<?= $_GET['id'] ?>" method="post"> <!-- Modification d'un article avec son titre et son texte -->
 	<div class="titleZone">

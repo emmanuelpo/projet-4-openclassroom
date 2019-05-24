@@ -1,7 +1,9 @@
 body
 {
-	background-color: #3390FF;
+	background-image: url(https://www.royalcaribbean.com/content/dam/royal/ports-and-destinations/destinations/alaska-glacier-cruises/alaska-glacier-bay-from-cruise-ship.jpg);
 	padding: 0;
+	width: 100%;
+	height:100%;
 	margin: 0;
 	text-decoration: none;
 	
@@ -10,66 +12,10 @@ body
 a
 {
 	text-decoration: none;
-	color: yellow;
+	
 }
 
-#adminTitle
-{
-	margin-left:25%;
-}
-
-#containerChapter
-{
-	margin-left: 50px;
-	margin-top: 50px;
-	margin-bottom: 30px;
-}
-
-#addChapter
-{
-	margin-left: 50px;
-	font-weight: bold;
-
-}
-
-#addChapter a
-{
-	color: purple;
-}
-
-#signalsComment
-{
-	margin-top: 50px;
-	margin-left: 50px;
-}
-
-.editZone
-{
-
-	margin-left: 10px;
-	margin-right: 10px;
-}
-
-.prev_page
-{
-	margin-left: 10px;
-}
-
-.titleZone
-{
-	margin-left: 10px;
-}
-
-.valider
-{
-	margin-top: 10px;
-	margin-left: 10px;
-}
-
-#deleteLink
-{
-	margin-left: 10px;
-}
+/** ---------------------------------------------------------En tête/Menu---------------------------------------------------------- **/
 
 #menu
 {
@@ -103,15 +49,140 @@ li a
     text-align: center;
 }
 
-#footer /** Pied de page **/
+
+/** ------------------------------------ Page des Chapitres -------------------------------------------**/
+
+h2
 {
-	position: fixed;
-	bottom: 0;
-	width: 100%;
+	font-size: 1.8em;
+	margin-bottom: 0;
+	margin-top: 5px;
+}
+
+.containerChapter
+{
+	margin-top: 60px;
+	width: 60%;
+	display: auto;
+	margin-left: 22%;
+
+}
+
+.dateParution
+{
+	padding-top: 0;
+	padding-bottom: 20px;
+	margin: 0;
+
+}
+
+.titreChapitres
+{
+	font-size: 2.5em;
+	font-weight: bold;
+	font-style: italic;
+	border: 5px groove black;
+	width: 450px;
+	margin-left:calc(50% - calc(100px * 2));
+	padding: 20px;
+}
+
+.chapter
+{
+	background-color: rgba(135, 206, 250, 0.8);
+	border-radius: 8px;
+	margin-bottom: 50px;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.fullChapter
+{
+	color: #095228;
+	font-weight: bold;
+	font-size: 1.3em;
+}
+
+/** ---------------------------------------------------------Page d'administration --------------------------------------------------- **/
+
+h3
+{
+	margin-left: 22%;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
+
+#adminTitle
+{
+	margin-left:23%;
+}
+
+#addChapter
+{
+	font-weight: bold;
+	margin-left: 22%;
+	font-size: 2em;
+	font-style: italic;
+}
+
+#addChapter a
+{
+	color: yellow;
+}
+
+.modifChapter
+{
+	color:red;
+}
+
+.reportComment
+{
+	margin-left: 22%;
+	background-color: yellow;
+	width: 700px;
+}
+
+.editZone
+{
+
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.prev_page
+{
+	margin-left: 10px;
+}
+
+.titleZone
+{
+	margin-left: 10px;
+}
+
+.valider
+{
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+#deleteLink
+{
+	margin-left: 10px;
+}
+
+
+/** -------------------------------------------------------------Pied de page------------------------------------------------------------------------ **/
+
+#footer 
+{	
 	height: 55px;
 	background-color: #33DDFF;
 	padding-top: 5px;
 	padding-left: 40%;
+	position: relative;
+	bottom:0;
 }
 
 #footer p

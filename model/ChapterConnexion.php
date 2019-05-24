@@ -6,10 +6,14 @@ require_once("model/Connexion.php");
 
 class ChapterConnexion extends Connexion
 {
+	public $postParPage = 3;
+	public $depart = 0;
+
 	public function getPosts() /** Récupération des chapitres pour leur affichage **/
 	{
+
 		$db = $this->dbConnect();
-		$req = $db->query('SELECT id, title, content, DATE_FORMAT(date_hours, \'%d/%m/%Y à %Hh%i\') AS date_fr FROM post WHERE state = TRUE ORDER BY date_hours DESC LIMIT 0, 5 ') ;
+		$req = $db->query('SELECT id, title, content, DATE_FORMAT(date_hours, \'%d/%m/%Y à %Hh%i\') AS date_fr FROM post WHERE state = TRUE ORDER BY date_hours DESC LIMIT ' .$this->depart.','.$this->postParPage) ;
 
 		return $req;
 

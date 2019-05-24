@@ -7,6 +7,10 @@ require_once('model/ChapterConnexion.php');
 
 class ChapterController
 {
+	public function main(){
+
+		require('view/main.php');
+	}
 
 	public function listChapter()					/** Permet d'afficher la liste des chapitre en appelant le fichier html listChapter.php **/
 	{
@@ -15,6 +19,15 @@ class ChapterController
 		
 
 		require('view/listChapters.php');
+	}
+
+	public function visitorView()					/** Permet d'afficher la liste des chapitre en appelant le fichier html listChapter.php **/
+	{
+		$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
+		$posts = $postManager->getPosts();
+		
+
+		require('view/visitorView.php');
 	}
 
 	public function listChapterAdmin()
@@ -53,7 +66,7 @@ class ChapterController
 
 		if (!empty($_POST['title']) && !empty($_POST['content'])) {
 			$postManager->editChapter($_GET['id'], $_POST['title'], $_POST['content']);
-			header('Location: index.php');
+			header('Location: index.php?action=listChapter');
 		}
 
 		require('view/editChapter.php');
@@ -71,6 +84,15 @@ class ChapterController
            header('Location: index.php');
         }
 
+	}
+
+	public function countChapter()
+	{
+		$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
+
+		$post = $postManager->
+
+		$postsPerPage = 5;
 	}
 
 }
