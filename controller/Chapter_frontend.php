@@ -12,31 +12,28 @@ class ChapterController
 		require('view/main.php');
 	}
 
-	public function listChapter()					/** Permet d'afficher la liste des chapitre en appelant le fichier html listChapter.php **/
+	public function listChapter($page)					/** Permet d'afficher la liste des chapitre en appelant le fichier html listChapter.php **/
 	{
+		$postParPage = 2;
+		$depart = ($page - 1) * $postParPage ;
 		$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
-		$posts = $postManager->getPosts();
+		$posts = $postManager->getPosts($depart,$postParPage);
 		
+		$countReq = $postManager->countPosts();
+		$countPosts = $countReq->rowCount();
+		$pagesTotales = ceil($countPosts/$postParPage);
 
 		require('view/listChapters.php');
 	}
 
-	public function visitorView()					/** Permet d'afficher la liste des chapitre en appelant le fichier html listChapter.php **/
+	public function visitorView()					/** Permet d'afficher la liste des chapitre en appelant le fichier html visitorView.php **/
 	{
+
 		$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
-		$posts = $postManager->getPosts();
+		$posts = $postManager->getPosts($depart,$postParPage);
 		
 
 		require('view/visitorView.php');
-	}
-
-	public function listChapterAdmin()
-	{
-		$postManager = new \OpenClassrooms\projetopenclassroom\model\ChapterConnexion();
-		$posts = $postManager->getPosts();
-		
-
-		require('view/listChapters.php');
 	}
 
 	public function writeChapter()				   /** Appelle la page permettant d'écrire de nouveau chapitre **/

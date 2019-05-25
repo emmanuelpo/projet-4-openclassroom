@@ -26,9 +26,13 @@
     }
     $posts->closeCursor();
     ?>
-
-    
-    ?>
+    <div id="pagination">
+	    <?php
+	    	for($i=1;$i<=$pagesTotales;$i++) {
+	    		  echo '<a class ="nbPages" href="index.php?action=listChapter&page='.$i.'"> '.$i.' </a>'  ;
+	    		}
+	    ?>
+	</div>
 
 </div>
 

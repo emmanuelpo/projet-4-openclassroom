@@ -9,7 +9,15 @@ $login = new \OpenClassrooms\projetopenclassroom\controller\LoginController();
 
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listChapter') { /** Récupérer la liste des chapitres sur la page **/
-            $chap->listChapter();
+            if(isset($_GET['page'])){
+            	$page = (int)$_GET['page'];
+            	if($page <1){
+            		$page = 1; 
+            	}
+           	}   else{
+            		$page=1;
+            	}
+            	$chap->listChapter($page);
         } elseif ($_GET['action'] == 'post') { /** Récupérer la liste des commentaires sur un chapitre **/
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 $comment->listComment();

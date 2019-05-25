@@ -6,14 +6,15 @@ require_once("model/Connexion.php");
 
 class ChapterConnexion extends Connexion
 {
-	public $postParPage = 3;
-	public $depart = 0;
 
-	public function getPosts() /** Récupération des chapitres pour leur affichage **/
+	public function getPosts($depart,$postParPage) /** Récupération des chapitres pour leur affichage **/
 	{
 
 		$db = $this->dbConnect();
-		$req = $db->query('SELECT id, title, content, DATE_FORMAT(date_hours, \'%d/%m/%Y à %Hh%i\') AS date_fr FROM post WHERE state = TRUE ORDER BY date_hours DESC LIMIT ' .$this->depart.','.$this->postParPage) ;
+		$req = $db->prepare('SELECT id, title, content, DATE_FORMAT(date_hours, \'%d/%m/%Y à %Hh%i\') AS date_fr FROM post WHERE state = TRUE ORDER BY date_hours DESC LIMIT :depart, :postParPage');
+		$req->bindParam('depart', $depart, \PDO::PARAM_INT);
+		$req->bindParam('postParPage', $postParPage, \PDO::PARAM_INT);
+		$req->execute();
 
 		return $req;
 
@@ -59,5 +60,13 @@ class ChapterConnexion extends Connexion
 
 		return $newsuppr;
 
+	}
+
+	public function countPosts()
+	{
+		$db = $this->dbConnect();
+		$req = $db->query('SELECT id FROM post WHERE state = TRUE');
+
+		return $req;
 	}
 }
