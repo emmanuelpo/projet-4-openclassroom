@@ -34,8 +34,12 @@ $login = new \OpenClassrooms\projetopenclassroom\controller\LoginController();
                     $page=1;
                 }  /** Aller sur la page des chapitres (mode visiteur) **/
         	$chap->visitorView($page);
-        } elseif ($_GET['action'] == 'login'){ 		  /** Aller sur la page de connexion **/
-        	$login->loginPage();
+        } elseif ($_GET['action'] == 'login'){ /** Aller sur la page de connexion **/
+            if (FALSE) {
+                $login->loginValid();
+            }else{
+                $login->loginPage();
+            }  	
         } elseif ($_GET['action'] == 'addComment') {  /** Ajouter un commentaire sur un chapitre **/
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {

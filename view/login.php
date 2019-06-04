@@ -1,8 +1,11 @@
+<?php $title = 'Page de connexion'; ?>
+
 <?php require('header.php'); ?>
 <?php ob_start(); ?>
 
+
 <div id="loginform">
-    <form action="login.php" method="post">
+    <form action="index.php?action=listChapter" method="post">
     	<div class="forminput">
 	        <label for="login" class="login">Login:</label>
 	        <input type="text" name="username" id="login"/><br />

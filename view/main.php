@@ -1,3 +1,5 @@
+<?php $title = htmlspecialchars("Billet simple pour l'Alaska"); ?>
+
 <?php require('header.php'); ?>
 <?php ob_start(); ?>
 
@@ -51,7 +53,7 @@
 <div id="resume">
 	<div class="containerChapter">
 		<div class="container">
-			<h2 class="lastChapterPublish"> Résumé d'un Billet simple pour l'Alaska </h2>
+			<h2 class="lastChapterPublish"> Résumé </h2>
 			<p class="resume"><i>"Un jour, l'Homme découvrira la beauté de sa propre terre, de sa propre planète et ce jour là, il pourra vraiment la voir comme un être vivant et ressentir la vie qui la parcourt à chaque instant".</i> Oui cette phrase est de moi mais ce que je vais vous faire découvrir dans cette histoire vous fera la comprendre un peu mieux. A travers mes lignes, je vais vous faire découvrir cette belle région du monde qui est l'Alaska. Depuis mon arrivé sur l'île de Kodiak Island en passant par les montagnes enneigés de Denali. Ma route me fera aller entre les différents monts et découvrir de belles prairies. Les rencontres seront bien sur présente, parfois chaleureuse, parfois plus tumultueuses dirons nous. Mais que voulez vous, il faut de tout pour faire un monde.</p>
 		</div>
 	</div>
