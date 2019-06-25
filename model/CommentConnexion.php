@@ -9,7 +9,7 @@ class CommentConnexion extends Connexion
 	public function getComments($postId)		/**Récupération des commentaires dans la table comments de la base de données **/
 	{
 		$db = $this->dbConnect();
-		$comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin%ss\') AS date_comment_fr FROM comments WHERE FK_post = ? ORDER BY date_comment DESC');
+		$comments = $db->prepare('SELECT id, author, comment, DATE_FORMAT(date_comment, \'%d/%m/%Y à %Hh%imin\') AS date_comment_fr FROM comments WHERE FK_post = ? ORDER BY date_comment DESC');
 		$comments->execute(array($postId));
 
 		return $comments;

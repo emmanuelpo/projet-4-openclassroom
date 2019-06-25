@@ -1,4 +1,5 @@
-AuthName "Veuillez rentrer votre login et mot de passe"
+AuthUserFile "/home/officedupf/www/projet-4-openclassroom/admin/.htpasswd"
+AuthGroupFile /dev/null
+AuthName "Accès Restreint à ce dossier"
 AuthType Basic
-AuthUserFile "/home/site/www/admin/.htpasswd"
-Require valid-user
+require valid-user

@@ -6,11 +6,11 @@ require_once("model/Connexion.php");
 
 class LoginConnexion extends Connexion
 {
-	public function getLogin($login)
+	public function getLogin($pseudo)
 	{
 		$db = $this->dbConnect();
-		$req = $db->query('SELECT password,id FROM admin WHERE login = :login');
-		$req->execute(array(":username"=>$username));
+		$req = $db->prepare('SELECT * FROM admin WHERE login = :login');
+		$req->execute(array(":login"=>$pseudo));
 
 		$logincheck = $req->fetch();
 

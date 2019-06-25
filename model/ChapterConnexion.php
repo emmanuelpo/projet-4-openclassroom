@@ -62,10 +62,18 @@ class ChapterConnexion extends Connexion
 
 	}
 
-	public function countPosts()
+	public function countPosts()	/** Permet de compter tout les chapitres non supprimé afin de mettre en place la pagination**/
 	{
 		$db = $this->dbConnect();
 		$req = $db->query('SELECT id FROM post WHERE state = TRUE');
+
+		return $req;
+	}
+
+	public function lastPost()
+	{
+		$db = $this->dbConnect();
+		$req = $db->query('SELECT id, title, content, DATE_FORMAT(date_hours, \'%d/%m/%Y à %Hh%i\') AS date_fr FROM post WHERE state = TRUE ORDER BY date_hours DESC LIMIT 0, 1');
 
 		return $req;
 	}

@@ -37,7 +37,7 @@ class CommentController
 		$commentManager = new \OpenClassrooms\projetopenclassroom\model\CommentConnexion();
 
 		$deleteComment = $commentManager->deleteComment($id);
-        header('Location: index.php');
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
 	}
 
 	public function listReport()                                /** Permet d'afficher la liste des commentaires signalés   **/
