@@ -435,6 +435,15 @@ h3
 
 /** -----------------------------------------------Media Queries / Responsive Design----------------------------------------------- **/
 
+@media(max-width: 1024px){
+
+	.titreView
+	{
+		margin-left:calc(50% - calc(110px * 2));
+	}
+
+}
+
 @media (max-width: 600px){
 
 	#menu ul
