@@ -72,6 +72,6 @@
 
 <?php require('view/footer.php'); ?>
 
-<?php $content = ob_get_clean(); ?>
+<?php $content2 = ob_get_clean(); ?>
 
-<?php require('admin/backend/template.php'); ?>
+<?php require('admin/backend/templateChapter.php'); ?>

@@ -7,6 +7,17 @@ body
 	text-decoration: none;
 }
 
+#bodyChapter
+{
+	background-image: none;
+	margin-top: -30px;
+	background-color: rgb(30,144,255);
+	height:100%;
+	margin: 0;
+	margin-top: 85px; 
+	text-decoration: none;
+}
+
 a
 {
 	text-decoration: none;
@@ -112,14 +123,6 @@ h2
 	display: inline-block;
 }
 
-.backgroundChapter
-{
-	background-color: rgb(30,144,255);
-	background-image: none;
-	margin-top: -30px;
-	padding-bottom: 10px;
-}
-
 article
 {
 	margin-top: 30px;
@@ -136,7 +139,7 @@ article
 
 }
 
-.container
+.container						/** Bloc d'un  chapitre **/
 {
 	background-color: rgba(135, 206, 250, 1);
 	border-radius: 8px;
@@ -147,7 +150,7 @@ article
 	padding-right: 20px;
 }
 
-.chapter
+.chapter          
 {
 	background-color: rgba(135, 206, 250, 0.9);
 	border-radius: 8px;
@@ -176,7 +179,7 @@ article
 	font-size: 0.8em;
 }
 
-.pagination
+.pagination				/** bloc de pagination **/
 {
 	display: inline-block;
 	margin-left:calc(50% - calc(30px * 2));
